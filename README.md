@@ -5,7 +5,10 @@ a native multi-cluster Kubernetes dashboard for Azure AKS fleets.
 
 ## Install
 
+Homebrew requires third-party casks to be trusted once before first install:
+
 ```bash
+brew trust aavishay/aks-fleet-dashboard
 brew install --cask aavishay/aks-fleet-dashboard/aks-fleet-dashboard
 ```
 

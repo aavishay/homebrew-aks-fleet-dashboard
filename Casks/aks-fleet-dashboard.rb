@@ -13,8 +13,9 @@ cask "aks-fleet-dashboard" do
   end
 
   # Universal build, so one artifact covers both architectures. Tauri v2's
-  # minimum is macOS 10.15.
-  depends_on macos: ">= :catalina"
+  # floor is macOS 10.15; a bare symbol means "this version or newer" (the
+  # `">= :catalina"` string form is deprecated).
+  depends_on macos: :catalina
 
   app "AKS Fleet Dashboard.app"
 
