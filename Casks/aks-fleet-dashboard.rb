@@ -1,6 +1,6 @@
 cask "aks-fleet-dashboard" do
-  version "0.2.0"
-  sha256 "cc9ee147e3fd0ad887343d1ba827731fea71806e1489e6b6ca871600fb13b482"
+  version "0.3.0"
+  sha256 "165157eef75cda70d074229da48ca17311ea3fff1afb6f11627aaba9c55287ff"
 
   url "https://github.com/aavishay/aks-multicluster-dashboard/releases/download/v#{version}/AKS-Fleet-Dashboard-#{version}-universal.dmg"
   name "AKS Fleet Dashboard"
