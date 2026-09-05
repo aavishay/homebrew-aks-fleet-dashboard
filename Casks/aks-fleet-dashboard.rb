@@ -12,10 +12,15 @@ cask "aks-fleet-dashboard" do
     strategy :github_latest
   end
 
-  # Universal build, so one artifact covers both architectures. Tauri v2's
-  # floor is macOS 10.15; a bare symbol means "this version or newer" (the
-  # `">= :catalina"` string form is deprecated).
-  depends_on macos: :catalina
+  # Universal build, so one artifact covers both architectures. A bare symbol
+  # means "this version or newer".
+  #
+  # Big Sur rather than Tauri v2's actual floor of macOS 10.15: Homebrew moved
+  # :catalina into DISABLED_MACOS_VERSIONS, so declaring it now aborts the
+  # install outright. Big Sur is the oldest symbol still accepted, and the gap
+  # costs nothing in practice — Homebrew itself does not run on Catalina, so
+  # nobody could reach this cask from there anyway.
+  depends_on macos: :big_sur
 
   app "AKS Fleet Dashboard.app"
 
