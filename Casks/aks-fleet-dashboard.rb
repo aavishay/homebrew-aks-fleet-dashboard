@@ -43,16 +43,23 @@ cask "aks-fleet-dashboard" do
       "~/Library/WebKit/io.github.aavishay.aks-fleet-dashboard",
     ]
 
+    # Deliberately no --no-quarantine escape hatch. Homebrew removed the flag:
+    # on 7.0.6 `brew install`, `reinstall` and `upgrade` all reject it with
+    # "Error: invalid option: --no-quarantine", so the advice this block used to
+    # carry walked people straight into a failed command. There is no
+    # replacement — no env var either; HOMEBREW_CASK_OPTS is shellsplit into the
+    # same option parser, so putting it there fails the same way.
+    #
+    # The xattr line is the remedy that still works, and it is harmless when the
+    # attribute is not set. Hedged rather than stated flatly because it is:
+    # Quarantine.cask! skips a download that is already marked, so whether the
+    # installed app carries the flag depends on how the artifact was fetched.
     caveats <<~EOS
       This build is ad-hoc signed rather than signed with an Apple Developer ID,
-      so macOS quarantines it and will refuse to open it on first launch. Clear
-      the quarantine flag once:
+      so macOS may quarantine it and refuse to open it. If that happens, clear
+      the flag:
 
         xattr -dr com.apple.quarantine "#{appdir}/AKS Fleet Dashboard.app"
-
-      To skip that step on future installs, pass --no-quarantine:
-
-        brew install --cask --no-quarantine aks-fleet-dashboard
 
       The app needs a working kubectl context per cluster. It reads your existing
       ~/.kube/config and stores no credentials of its own:
