@@ -64,7 +64,7 @@ cask "aks-fleet-dashboard" do
       The app needs a working kubectl context per cluster. It reads your existing
       ~/.kube/config and stores no credentials of its own:
 
-        az aks get-credentials --resource-group <rg> --name <cluster> --merge
+        az aks get-credentials --resource-group <rg> --name <cluster>
     EOS
   end
 
@@ -108,7 +108,7 @@ cask "aks-fleet-dashboard" do
       The app needs a working kubectl context per cluster. It reads your existing
       ~/.kube/config and stores no credentials of its own:
 
-        az aks get-credentials --resource-group <rg> --name <cluster> --merge
+        az aks get-credentials --resource-group <rg> --name <cluster>
     EOS
   end
 
