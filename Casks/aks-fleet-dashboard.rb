@@ -1,5 +1,5 @@
 cask "aks-fleet-dashboard" do
-  version "0.7.54"
+  version "0.7.55"
 
   # Split per platform rather than one url/sha pair, because the artifacts are
   # different kinds of thing: a .dmg holding an .app on macOS, a bare AppImage
@@ -16,7 +16,7 @@ cask "aks-fleet-dashboard" do
   # so a top-level macOS dependency applies on every platform and makes the
   # Linux install abort with "This cask requires macOS."
   on_macos do
-    sha256 "939c2f8193eaedf6899b38ca9ad3dac7d908eede867b4ec068e48a74674a292b"
+    sha256 "2c52f957292fc1c69a00d6bf79c8e412e78efbb863b8c2ad6e4408268dd6a8af"
     url "https://github.com/aavishay/aks-multicluster-dashboard/releases/download/v#{version}/AKS-Fleet-Dashboard-#{version}-universal.dmg"
 
     # Universal build, so one artifact covers both architectures. A bare symbol
@@ -69,7 +69,7 @@ cask "aks-fleet-dashboard" do
   end
 
   on_linux do
-    sha256 "4d582b913ddb0afce9f7f523174b155988901ae08a17f93d49e2ee2743f9ab22"
+    sha256 "9f90a796975a6002f7daf73f15105b38326819e86eda22d955416f2aecd9260d"
     url "https://github.com/aavishay/aks-multicluster-dashboard/releases/download/v#{version}/AKS-Fleet-Dashboard-#{version}-x86_64.AppImage"
 
     # x86-64 only for now; there is no arm64 Linux build to point at.
